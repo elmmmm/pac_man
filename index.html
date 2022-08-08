@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="吃豆人是一款游戏">
+    <meta name="keywords" content="pacman">
+    <link rel="shortcut icon" href="favicon.png">
+    <title>我的吃豆人</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="tips">
+            <div class="avatar">
+                <div>
+                    <img src="./img/target.png" alt="炸裂">
+                </div>
+                <div class="title">游戏规则</div>
+                <div class="place">PAC-MAN</div>
+            </div>
+            <div class="content">
+                <p>
+                    玩家一共5条生命，吃光所有豆子即为胜利，被幽灵抓到失去1条生命。<br>
+                    如果吃到大力丸，幽灵会失去方向，四处逃散，大力丸增益期间玩家可以吃掉幽灵，获得巨额分数。🏆<br>
+                </p>
+            </div>
+        </div>
+        <div class="mod-game">
+            <div class="display-column absolute">
+                <!--当前关卡-->
+                <div class="amount-container">
+                    <span id="stage-amount-label">第 1 关</span>
+                    <img  src="img/stages.png">
+                </div>
+                <!--豆子统计-->
+                <div class="amount-container">
+                    <span id="coin-amount-label">128 / 346</span>
+                    <img  src="img/coins.png">
+                </div>
+                <!--生命统计-->
+                <div class="amount-container">
+                    <span id="life-amount-label">4 / 4</span>
+                    <img  src="img/life.png">
+                </div>
+                
+                <!-- 操作提示 -->
+                <div class="play-container">
+                    <span class="stop"></span>
+                    <span>开始 / 暂停</span>
+                </div>
+                <div class="play-container">
+                    <span class="direction"></span>
+                    <span>切换方向</span>
+                </div>
+            </div>
+            <canvas id="canvas" width="730" height="566">不支持画布</canvas>
+            <div class="changeStage">
+                <button id="lastBtn">上一关</button>
+                <button id="resetBtn">重置游戏</button>
+                <button id="nextBtn">下一关</button>
+            </div>
+            <div id="deadDialog" class="absolute dialog-container hide">
+                <div class="result-content">
+                    <img src="img/deadicon.png">
+                    <span class="dialog-label">挑战失败~<br>【重置游戏】可再次挑战嗷✊~</span>
+                    <div id="deadButton" class="dialog-restart-button">我知道了</div>
+                </div>
+            </div>
+            <div id="passDialog" class="absolute dialog-container hide">
+                <div class="result-content">
+                    <img src="img/passicon.png">
+                    <span id="pass-label" class="dialog-label">恭喜通关!<br>继续挑战下一关吧🧸~</span>
+                    <div id="passButton" class="dialog-restart-button">好的</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
