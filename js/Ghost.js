@@ -132,8 +132,7 @@ export class Ghost extends GameObject {
                 this.player.timeout = 40;
             } else { //幽灵逃跑状态下碰撞，则幽灵死亡
                 this.status = 4;
-                this.player.score += 60;  //加十分
-                this.player.buffCount++;
+                this.player.buffCount++;  //获得增益
             }
         }
     }

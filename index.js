@@ -128,7 +128,7 @@ class Game {
                 } else {
                     obj.timedelta = last_timestamp - timestamp;
                     // if(playground.status == 1 && obj.status != 2){ //处于正常状态才更新位移，如果玩家死亡中，或处于游戏暂停时，幽灵参数保持不变
-                    if (that.playground.status == 1 && that.playground.player.status != 3 && that.playground.total != that.playground.player.score - that.playground.player.buffCount * 60) {
+                    if (that.playground.status == 1 && that.playground.player.status != 3 && that.playground.total != that.playground.player.score) {
                         obj.update();
                         if (obj.timeout) {  //逃跑状态倒计时
                             obj.timeout--;
@@ -183,8 +183,10 @@ class Game {
 
             var text = that.playground.player.score + " / " + that.playground.total
             document.querySelector("#coin-amount-label").innerHTML = text;
+            text = "+ " + that.playground.player.buffCount + " * 60" //吃幽灵加60分
+            document.querySelector("#buff-amount-label").innerHTML = text;
             //进入下一关
-            if (that.playground.total == that.playground.player.score - that.playground.player.buffCount * 60) {
+            if (that.playground.total == that.playground.player.score) {
                 if(that.level == 2){
                     document.getElementById("pass-label").innerHTML = "恭喜你完成全部挑战~<br>你真棒🎉~";
                 }
