@@ -190,6 +190,7 @@ class GamePlayground {
     }
 
     start() {
+        document.querySelector("#life-amount-label").innerHTML = this.player.life-1 + " / 4"
         this.createMapandItem();
         this.addListeningEvents();
     }
